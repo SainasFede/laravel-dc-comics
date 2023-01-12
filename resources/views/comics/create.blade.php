@@ -22,7 +22,7 @@
 
           <div class="mb-3">
             <label for="price" class="form-label">Costo</label>
-            <input type="text" name="price" class="form-control" id="title" placeholder="Quanto costa">
+            <input type="text" name="price" class="form-control" id="price" placeholder="Quanto costa">
           </div>
 
           <div class="mb-3">
@@ -32,7 +32,7 @@
 
           <div class="mb-3">
             <label for="date" class="form-label">Data di pubblicazione</label>
-            <input type="text" name="date" class="form-control" id="date" placeholder="Data di pubblicazione">
+            <input type="text" name="sale_date" class="form-control" id="sale_date" placeholder="Data di pubblicazione">
           </div>
 
           <div class="mb-3">

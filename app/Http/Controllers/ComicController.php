@@ -47,9 +47,10 @@ class ComicController extends Controller
         $new_comic->series = $form_data['series'];
         $new_comic->sale_date = $form_data['sale_date'];
         $new_comic->type = $form_data['type'];
-        //$new_comic->save();
+        $new_comic->save();
 
-        dd($new_comic);
+        return redirect(route('comics.index'));
+
     }
 
     /**
@@ -60,7 +61,7 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        return view('comics.show');
+        return view('comics.show', compact('comic'));
     }
 
     /**
