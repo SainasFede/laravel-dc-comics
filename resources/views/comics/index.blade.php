@@ -34,4 +34,7 @@
               {{$comics->links()}}
         </div>
     </div>
+    <div class="container my-3 text-end">
+        <a class="btn btn-warning" href="{{route('comics.create')}}">Crea una nuova pasta</a>
+    </div>
 @endsection
