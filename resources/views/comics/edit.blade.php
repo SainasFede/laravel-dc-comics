@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="container">
-    <h1>Modifica il Comic</h1>
+    <div class="d-flex justify-content-between">
+        <h1 class="d-inline">Modifica un Comic</h1>
+        <div>
+            <a class="btn btn-success" href="{{route('comics.index')}}">Torna all'elenco Comics</a>
+        </div>
+    </div>
     <form action="{{route('comics.update', $comic)}}" method="POST">
         @csrf
         @method('PUT')
