@@ -2,7 +2,12 @@
 
 @section('content')
     <div class="container">
-        <h1>Comics-DC</h1>
+     <h1>Comics-DC</h1>
+     @if (session('deleted'))
+     <div class="alert alert-success" role="alert">
+         {!!session('deleted')!!}
+    </div>
+    @endif
         <div class="row mt-4">
             <table class="table table-striped">
                 <thead>
@@ -19,9 +24,20 @@
                             <td>{{$comic->title}}</td>
                             <td>{{$comic->type}}</td>
                             <td>
-                                <a class="btn btn-primary" href="{{route('comics.show', $comic)}}" title="show"><i class="fa-regular fa-eye"></i></a>
-                                <a class="btn btn-success " href="#" title="edit"><i class="fa-solid fa-pencil"></i></a>
-                                <a class="btn btn-danger " href="#" title="delete"><i class="fa-solid fa-trash"></i></a>
+                                <a class="btn btn-primary"
+                                href="{{route('comics.show', $comic)}}" title="show"><i class="fa-regular fa-eye"></i></a>
+
+                                <a class="btn btn-success "
+                                href="{{route('comics.edit', $comic)}}" title="edit"><i class="fa-solid fa-pencil"></i></a>
+
+                                <form onsubmit="return confirm('Vuoi eliminare : {{$comic->title}}')"
+                                    class="d-inline"
+                                    action="{{route('comics.destroy', $comic)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger"
+                                    title="delete"><i class="fa-solid fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
                     @empty
@@ -35,6 +51,6 @@
         </div>
     </div>
     <div class="container my-3 text-end">
-        <a class="btn btn-warning" href="{{route('comics.create')}}">Crea una nuova pasta</a>
+        <a class="btn btn-warning" href="{{route('comics.create')}}">Immetti un Comic</a>
     </div>
 @endsection
