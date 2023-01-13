@@ -2,7 +2,12 @@
 
 @section('content')
     <div class="container">
-     <h1>Comics-DC</h1>
+     <div class="d-flex justify-content-between">
+        <h1 class="d-inline">Comics-DC</h1>
+        <div>
+            <a class="btn btn-warning" href="{{route('comics.create')}}">Immetti un Comic</a>
+        </div>
+    </div>
      @if (session('deleted'))
      <div class="alert alert-success" role="alert">
          {!!session('deleted')!!}
@@ -49,8 +54,5 @@
 
               {{$comics->links()}}
         </div>
-    </div>
-    <div class="container my-3 text-end">
-        <a class="btn btn-warning" href="{{route('comics.create')}}">Immetti un Comic</a>
     </div>
 @endsection
